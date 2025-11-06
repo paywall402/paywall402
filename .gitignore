@@ -53,3 +53,4 @@ coverage/
 .cache/
 .temp/
 .vercel
+.claude/

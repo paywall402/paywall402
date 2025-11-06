@@ -1,0 +1,38 @@
+PayWall402 Deployment Guide
+===========================
+
+Frontend (Vercel):
+1. Push code to GitHub
+2. Import project on vercel.com
+3. Select /frontend as root directory
+4. Add environment variable:
+   NEXT_PUBLIC_API_URL = your-backend-url
+5. Deploy
+
+Backend (Railway):
+1. Install Railway CLI: npm i -g @railway/cli
+2. Login: railway login
+3. In /backend folder: railway init
+4. Set environment variables in Railway dashboard:
+   - DATABASE_URL (PostgreSQL)
+   - FRONTEND_URL = https://paywall402.xyz
+   - SOLANA_RPC_URL
+   - SOLANA_NETWORK = mainnet-beta
+5. Deploy: railway up
+
+Environment Variables:
+
+Backend (.env):
+DATABASE_URL=postgresql://user:pass@host:5432/db
+FRONTEND_URL=https://paywall402.xyz
+SOLANA_RPC_URL=https://api.mainnet-beta.solana.com
+SOLANA_NETWORK=mainnet-beta
+PORT=3001
+
+Frontend (.env.local):
+NEXT_PUBLIC_API_URL=https://your-backend.railway.app
+
+Custom Domain:
+1. In Vercel, add custom domain in project settings
+2. Update DNS records as shown
+3. Update FRONTEND_URL in Railway to match

@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: paywall402-backend
+    runtime: node
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3001
+      - key: SOLANA_RPC_ENDPOINT
+        value: https://mainnet.helius-rpc.com/?api-key=2e09ef77-85cf-4ff6-bbe6-50dd5d7306ca
+      - key: CORS_ORIGIN
+        sync: false # Установите через dashboard
